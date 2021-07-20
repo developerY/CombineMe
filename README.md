@@ -2,7 +2,7 @@
 
 ## SwiftUI / Combine
 
-Tutorial for 360iDev 2020 Conference :-)
+Tutorial for 360iDev 2021 Conference :-)
 
 ****Requirements****
 Mac OS 10.15.6 or newer because we are using XCode 12 Beta 2.
@@ -14,13 +14,13 @@ We will work in pure SwiftUI (No UIKit)
 
 Schedule
 --
-#### Start (9am) - End (5pm)
+#### Start (9am) - End (12:30pm)
 
 We start with a presentation covering Why SwiftUI? / Combine Framework.
 [Slides](https://docs.google.com/presentation/d/1dKb4akc9U4xW9_L57Gx21qNbH33SVJjdvmSaFXkCCeI/edit?usp=sharing)
 
 
-#### 9am - 10am - Swift 5.1 / 5.2 (Review)
+#### 9am - 9:30am - Swift 5.3 / 5.4 / (5.5?) (Review)
 [Part 1 Slides 1 - 22](https://docs.google.com/presentation/d/1dKb4akc9U4xW9_L57Gx21qNbH33SVJjdvmSaFXkCCeI/edit?usp=sharing)
 [Swift 5.2 Lang Playgrounds]
 * Basic language constructs
@@ -29,7 +29,7 @@ We start with a presentation covering Why SwiftUI? / Combine Framework.
 * Swift Package Manager -- https://github.com/onevcat/Kingfisher - example
 * MVVM & MVI Architecture explained
 
-#### 10am - 11pm - SwiftUI 2 (Tutorial)
+#### 9:30am - 10pm - SwiftUI 3 (Tutorial)
 [Part 2 Slides 23 - 51](https://docs.google.com/presentation/d/1dKb4akc9U4xW9_L57Gx21qNbH33SVJjdvmSaFXkCCeI/edit#slide=id.g5e0c07467c_0_1823)
 [SwiftUI Playground Tutorials]
 - XCode Design Tools / Preview
@@ -43,7 +43,7 @@ We start with a presentation covering Why SwiftUI? / Combine Framework.
 - Navigation
 - Data Flow with Combine Framework
 
-#### 11am - 12pm SwiftUI State Management (Tutorial)
+#### 10am - 10:30am SwiftUI State Management (Tutorial)
 [Part 3 Slides 51 - 61](https://docs.google.com/presentation/d/1dKb4akc9U4xW9_L57Gx21qNbH33SVJjdvmSaFXkCCeI/edit#slide=id.g5e0c07467c_0_1868)
 [SwiftUI State Managment Playground Tutorials]
 Cold vs Hot Stream
@@ -54,17 +54,6 @@ Cold vs Hot Stream
 - @AppStorage
 - @SceneStorage
 - @EnvironmentObject
-
-
-#### 12pm - 1pm
-
---Lunch / Questions--
-
-          -or-
-          
-depending on how people feel
-
-
 
 ##### Combine Famework (Tutorial)
 [Part 4 Slides 61 - end](https://docs.google.com/presentation/d/1dKb4akc9U4xW9_L57Gx21qNbH33SVJjdvmSaFXkCCeI/edit#slide=id.g5e0c07467c_0_1868)
@@ -80,13 +69,12 @@ depending on how people feel
 
 Combine / SwiftUI Code Project
 --
-#### 2pm - 3pm Project Setup
+#### 10:30am - 11:30am Project Setup
 ` UI Bike Sharing Project `
 
-#### 3pm - 4pm Project Development
+#### 11:30pm - 12pm Project Development
 ` Data Bike Sharing Project `
 
-#### 4pm - 5pm Project Wrap Up
 - testing
 - Questions
 - Review the day.
