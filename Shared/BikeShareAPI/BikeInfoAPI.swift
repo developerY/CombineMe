@@ -47,7 +47,7 @@ extension BikeInfoAPI: BikeInfoCall {
 private extension BikeInfoAPI {
     struct GobalBikeAPI {
         static let scheme = "https"
-        static let host = "gbfs.fordgobike.com"
+        static let host = "gbfs.baywheels.com"
         static let path = "/gbfs/en"
         //static let key = "<your key>"
     }
