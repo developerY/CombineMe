@@ -11,7 +11,6 @@ struct GikeGridView: View {
     @ObservedObject var viewModel = SharedBikeViewModel()
     
     // use SF Symbols
-    let data = (1...1000).map { "Item \($0)" }
     
     let columns = [
         GridItem(.adaptive(minimum: 80))
@@ -33,8 +32,30 @@ struct GikeGridView: View {
                             Text(item.name)
                         }
                     }
+                }.refreshable {viewModel.restoreAll() }
+            }.padding(.horizontal)
+            
+            
+            List {
+                ForEach(stations) {item in
+                    Text(item.name)
                 }
-                .padding(.horizontal)
+            }.refreshable {viewModel.restoreAll() }
+            
+            HStack{
+                Button("Del1") {
+                    viewModel.deleteFirst()
+                }
+                
+                Button("Delete") {
+                    viewModel.deleteAll()
+                }
+                
+                Button("Restore") {
+                    viewModel.restoreAll()
+                }
+                
+                
             }
         }
     }

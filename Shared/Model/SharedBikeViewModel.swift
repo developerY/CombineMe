@@ -22,6 +22,7 @@ class SharedBikeViewModel : ObservableObject, Identifiable {
     @Published var sysInfo: SysInfoDataClass? = nil
     private var disposables = Set<AnyCancellable>()
     private let bikeInfoCall =  BikeInfoAPI()
+    private var stationCopy: [Station] = []
     
     
     init() {
@@ -52,6 +53,20 @@ class SharedBikeViewModel : ObservableObject, Identifiable {
                 self.sysInfo = data.data
                   })
             .store(in: &disposables)
+    }
+    
+    func deleteAll() {
+        stationCopy = stations
+        stations = []
+    }
+    
+    func deleteFirst() {
+        stations.removeFirst(1)
+    }
+    
+    
+    func restoreAll() {
+        stations = stationCopy
     }
     
     // Using async / await
