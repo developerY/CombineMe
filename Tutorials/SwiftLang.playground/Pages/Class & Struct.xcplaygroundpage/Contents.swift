@@ -5,7 +5,7 @@ import UIKit
  // https://docs.swift.org/swift-book/LanguageGuide/Initialization.html
  */
 
-// Class is a reference type
+// Class is a reference type so using the pointer it is easy to tell equality.
 class Shape {
     var numberOfSides = 0
     func simpleDescription() -> String {
@@ -17,6 +17,7 @@ class Shape {
 var shape = Shape()
 shape.numberOfSides = 7
 print(shape.simpleDescription())
+
 
 // Struct is a value type and the key to Protocal Orented Programming
 // comform to protcal but not inheretanc.

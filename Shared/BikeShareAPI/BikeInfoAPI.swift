@@ -4,12 +4,14 @@
 //
 //  Created by Swift Developer on 8/7/20.
 //
+//  static let scheme = "https://gbfs.baywheels.com/gbfs/en"
+//  static let key = "<your key>"
 
 import Foundation
 import Combine
 
 protocol BikeInfoCall {
-    //func sysInfo() -> AnyPublisher<DataClass, BikeError>
+    func sysInfo() -> AnyPublisher<SystemInfo, Error>
     func stationInfo() -> AnyPublisher<StationInfo, Error>
 }
 
@@ -22,11 +24,15 @@ class BikeInfoAPI {
 }
 
 extension BikeInfoAPI: BikeInfoCall {
+    func sysInfo() -> AnyPublisher<SystemInfo, Error> {
+        return getSysInfo(www_url : systemURLComponents().url!)
+    }
+    
     func stationInfo() -> AnyPublisher<StationInfo, Error> {
         return getBikeInfo(www_url : stationURLComponents().url!)
     }
     
-    func getBikeInfo(www_url:URL) ->   AnyPublisher<StationInfo, Error>{
+    func getBikeInfo(www_url:URL) -> AnyPublisher<StationInfo, Error>{
         /* cancellable = */
         print(www_url)
         return session.dataTaskPublisher(for: www_url)
@@ -40,6 +46,23 @@ extension BikeInfoAPI: BikeInfoCall {
                 return element.data
             }
             .decode(type: StationInfo.self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
+    }
+    
+    func getSysInfo(www_url:URL) -> AnyPublisher<SystemInfo, Error>{
+        /* cancellable = */
+        print(www_url)
+        return session.dataTaskPublisher(for: www_url)
+            //.print("step ==> ") // debug
+            .tryMap() { element -> Data in
+                guard let httpResponse = element.response as? HTTPURLResponse,
+                      httpResponse.statusCode == 200 else {
+                    throw URLError(.badServerResponse)
+                }
+                print("data \(element.data)")
+                return element.data
+            }
+            .decode(type: SystemInfo.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
 }

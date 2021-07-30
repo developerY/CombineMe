@@ -4,6 +4,9 @@
 
 Tutorial for 360iDev 2021 Conference :-)
 
+[video from last year!](https://360idev.com/session-videos/?vimeography_gallery=10&vimeography_video=457826085)
+[On YouTube] (https://www.youtube.com/watch?v=2eezk9u2lcE&list=PLnD_TKDSaFyXBC1yqsWCdBMmV4Gq99u7u&index=3)
+
 ****Requirements****
 Mac OS 10.15.6 or newer because we are using XCode 12 Beta 2.
 
@@ -11,6 +14,10 @@ If you do not have these you can still follow along ...
 We will work in pure SwiftUI (No UIKit)
 
 *CoreData as it is not an option for XCode 12.  Apple might be building a replacement ???*
+
+Talks covering both Android and iOS (given @ GDG SF / Berkley)
+https://docs.google.com/presentation/d/1nVVyWUnnenSJa-vyr_B0sfYr9uPhFFzJyUdKu3NmwrU/edit?ts=60f89549#slide=id.p
+
 
 Schedule
 --
@@ -114,6 +121,14 @@ SwiftUI
 * https://swiftuihub.com/swiftui-tutorials/combine/
 * https://www.andrewcbancroft.com/blog/ios-development/ui-work/swiftui-essentials-playgrounds/
 
+Whats new in Swfit 3.0
+enable pull to refresh
+add a search bar to filter your data
+add custom swipe action buttons to a List row
+load a remote image from a URL
+add visual effect blurs
+add a toolbar to the keyboard
+run an asynchronous task when a view is shown
 
 
 MVVM Arch

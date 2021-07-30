@@ -15,18 +15,21 @@
 
 import Foundation
 import Combine
-// Only want one and use as a referece everywhere
+// Only want one and use as a reference everywhere
 class SharedBikeViewModel : ObservableObject, Identifiable {
     
     @Published var stations: [Station] = []
+    @Published var sysInfo: SysInfoDataClass? = nil
     private var disposables = Set<AnyCancellable>()
     private let bikeInfoCall =  BikeInfoAPI()
     
     
     init() {
         fetchBikeInfo()
+        fetchSysInfo()
     }
     
+    // Using Combine
     //var cancellable : AnyCancellable?
     func fetchBikeInfo() {
         bikeInfoCall.stationInfo()
@@ -34,8 +37,22 @@ class SharedBikeViewModel : ObservableObject, Identifiable {
             .sink(receiveCompletion: {print ("Received completion: \($0).")},
                   receiveValue: {data in
                     //print ("Received user: \(data).")
-                    self.stations = data.data.stations
+                self.stations = data.data.stations
                   })
             .store(in: &disposables)
     }
+    
+    
+    func fetchSysInfo() {
+        bikeInfoCall.sysInfo()
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: {print ("Received completion: \($0).")},
+                  receiveValue: {data in
+                    print ("Received user: \(data).")
+                self.sysInfo = data.data
+                  })
+            .store(in: &disposables)
+    }
+    
+    // Using async / await
 }

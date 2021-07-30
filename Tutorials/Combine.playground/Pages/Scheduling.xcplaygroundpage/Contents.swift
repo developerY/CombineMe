@@ -20,12 +20,13 @@ let firstStepDone = DispatchSemaphore(value: 0)
 */
 print("* Demonstrating receive(on:)")
 
-let passThrough = PassthroughSubject<String, Never>()
+let passThroughSub = PassthroughSubject<String, Never>()
 let receivingQueue = DispatchQueue(label: "receiving-queue")
-let subscription = passThrough
-	.receive(on: receivingQueue)
-	.sink { value in
-		print("Received value: \(value) on thread \(Thread.current)")
+let passSub = passThroughSub.receive(on: receivingQueue)
+
+// Subscribe on receiving-queue
+passSub.sink { value in
+    print("Received value: \(value) on thread \(Thread.current.description)")
 		if value == "Four" {
 			firstStepDone.signal()
 		}
@@ -33,7 +34,8 @@ let subscription = passThrough
 
 for string in ["One","Two","Three","Four"] {
 	DispatchQueue.global().async {
-        passThrough.send(string)
+        // publishing on "receiving-queue"
+        passThroughSub.send(string)
 	}
 }
 
@@ -48,14 +50,17 @@ print("~~~~~ Done so the whole thing is not mixed ~~~~~")
 - may or may not impact the queue on which values are delivered
 */
 print("\n* Demonstrating subscribe(on:)")
-let subscription2 = [1,2,3,4,5].publisher
-	.subscribe(on: DispatchQueue.global())
-	.handleEvents(receiveOutput: { value in
-		print("Value \(value) emitted on thread \(Thread.current)")
-	})
-	.receive(on: receivingQueue)
-	.sink { value in
-		print("Received value: \(value) on thread \(Thread.current)")
-}
+let numSequPub = [1,2,3,4,5].publisher
+
+let numSequSubscribe = numSequPub.subscribe(on: DispatchQueue.global())
+
+// setup a handler
+.handleEvents(receiveOutput: { value in print("Value \(value) emitted on thread \(Thread.current)")})
+
+// let receivingQueue = DispatchQueue(label: "receiving-queue")
+.receive(on: receivingQueue)
+
+// subscribe on global dispatch
+.sink { value in print("Received value: \(value) on thread \(Thread.current)") }
 
 //: [Next](@next)

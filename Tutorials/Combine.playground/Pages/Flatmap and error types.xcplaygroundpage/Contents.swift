@@ -21,14 +21,17 @@ let mydata = [1,2,3,4,5]
 let md = mydata.compactMap({$0 * 2})
 print("compact map \(md)")
 let num = mydata.reduce(0,{x,y in x + y})
-print(num)
+print("reducer", num)
 
 let myd = mydata.publisher
-myd.reduce(0,{x,y in x + y}).sink( receiveValue: {data in print(data)})
+myd.reduce(0,{x,y in x + y}).sink( receiveValue: {data in print("pub reducer", data)})
+
+for i in 1...3 {print("\n")} // output spacer
 
 [1, 2, 3].publisher.flatMap({ int in
-    return (0..<int).publisher
-        .print("flat ->")
+    // makes a bunch of publishers
+    return (0..<int).publisher.print("flat ->")
+    
   }).sink(receiveCompletion: { _ in }, receiveValue: { value in
     print("value: \(value)")
   })

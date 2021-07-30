@@ -23,6 +23,7 @@ class MyClass {
         ///*cancellable =*/ subject.sink { value in
         //var variable: Int = 0
 		cancellable = subject.sink { value in
+        //subject.sink { value in
 			// Note that we are introducing a retain cycle on `self`
 			// on purpose, by not using `weak` or `unowned`
             self.variable += value
@@ -49,6 +50,10 @@ let subject = PassthroughSubject<Int,Never>()
 var object: MyClass? = MyClass(subject: subject)
 
 emitNextValue(from: [1,2,3,4,5,6,7,8], after: 0.5)
+
+/*
+ Must set the cancellable to nil to stop the publication
+ */
 
 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
 	print("Nullify object")

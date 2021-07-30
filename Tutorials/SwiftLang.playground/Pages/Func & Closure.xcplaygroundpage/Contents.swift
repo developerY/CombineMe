@@ -1,5 +1,12 @@
 //: [Previous](@previous)
 
+
+/**
+ Notes :
+ 
+External and Internal Names
+Functions are just normal types
+ **/
 import Foundation
 
 var str = "Hello, playground"
@@ -25,6 +32,8 @@ func greet3(_ person: String,_ day: String,_ sday:String) -> String { // this lo
 }
 print(greet3("John", "Wednesday", "Sunday"))
 
+
+// Swift is a higher order functional programming lang.
 // a function is just a type
 func makeIncrementer() -> ((Int) -> Int) {
     func addOne(number: Int) -> Int {
@@ -33,31 +42,44 @@ func makeIncrementer() -> ((Int) -> Int) {
     return addOne
 }
 var increment = makeIncrementer()
-print(increment(7))
+print("This was incremented" , increment(7))
 
 
 
 // The code in a closure has access to things like variables and functions that were available
 // in the scope where the closure was created, even if the closure is in a different scope when it is executed
 var numbers = [20, 19, 7, 12]
+
+// Closure captures the numbers.
+func capNum() -> ((Int) -> Int) {
+    func getNum(idx: Int) -> Int {
+        return numbers[idx]
+    }
+    return getNum
+}
+
+var capNums = capNum()
+print("The second in numbers is:", capNums(1))
+
+// passing a closure to a map
 let ans = numbers.map ({ (number: Int) -> Int in
     let result = 5 * number
     return result
 })
 let short_ans = numbers.map { $0 * 5 }
-print(ans)
+print("This is the ans \(ans) and short ans \(short_ans)")
 
 
 // escaping closure
 var closureArr:[()->()] = [/*empty of void->void closures*/]
 
 func testFunctionWithEscapingClosure(myClosure:@escaping() -> Void) {
-    print("function called")
+    print("test escaping function called")
     closureArr.append(myClosure)
     // myClosure() none escaping
 }
 
-testFunctionWithEscapingClosure(myClosure: {print("closure called")})
+testFunctionWithEscapingClosure(myClosure: {print("escaping closure called")})
 closureArr[0]()
 
 // shorting the name

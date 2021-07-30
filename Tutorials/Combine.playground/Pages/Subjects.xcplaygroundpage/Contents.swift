@@ -16,17 +16,18 @@ Using a subject to relay values to subscribers
 */
 let relay = PassthroughSubject<String, Never>()
 
-let subscription = relay
+let subscription = relay // relay subscriber
 	.sink { value in
 		print("subscription1 received value: \(value)")
 }
 
-relay.send("Hello")
+relay.send("Hello") // relay publisher
 relay.send("World!")
 
 // so this acts the same as a regular Publishers.Sequence<[String], Never>
-let hw = ["hello","world"].publisher
-hw.sink {value in
+let hw = ["hello","world"].publisher // hw publisher
+
+hw.sink {value in                    // hw sub
     print("sub1 = \(value)")
 }
 
@@ -55,8 +56,8 @@ for index in 1...100 {
     variable.send("Initial text \(index)")
 }
 
-let subscription2 = variable.sink { value in
-    print("subscription2 received value: \(value)")
+let subscriptionCurrentVal = variable.sink { value in
+    print("subscriptionCurrentVal received value: \(value)")
 }
 
 variable.send("More text")

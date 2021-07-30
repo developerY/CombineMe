@@ -37,6 +37,9 @@ let validatedCredentialsSubscription = Publishers
 usernamePublisher.send("avanderlee")
 passwordPublisher.send("weakpass")
 passwordPublisher.send("verystrongpassword")
+passwordPublisher.send("1234")// only keeps the latest with merge
+passwordPublisher.send("1234567891011")// only keeps the latest with merge
+
 
 /*:
 ## `Merge`
@@ -47,9 +50,12 @@ passwordPublisher.send("verystrongpassword")
 print("\n* Demonstrating Merge")
 let publisher1 = [1,2,3,4,5].publisher
 let publisher2 = [300,400,500].publisher
+let publisher3 = [10,40,50].publisher
+let publisher4 = [3,4,5].publisher
+let publisher5 = [31,41,52].publisher
 
 let mergedPublishersSubscription = Publishers
-	.Merge(publisher1, publisher2)
+	.Merge(publisher1, publisher2) // , publisher3, publisher4, publisher5)
     //.print("step2 -->") // amazing for debuging
 	.sink { value in
 		print("Merge: subscription received value \(value)")

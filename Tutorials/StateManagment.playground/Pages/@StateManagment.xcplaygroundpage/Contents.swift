@@ -89,8 +89,8 @@ struct BindingView: View {
     
     var body: some View {
         VStack {
-            Button("Increment @Binding") {
-                intValue += 1
+            Button("Increment @Binding (+2)") {
+                intValue += 2
             }
         }
     }
@@ -123,8 +123,8 @@ struct StateDataUserView1: View {
     @ObservedObject var provider : DataProvider /* never do = DataProvider()*/
     
     var body: some View {
-        Button("Increment @ObserObj") {
-            provider.currentValue += 1
+        Button("Increment @ObserObj (+3)") {
+            provider.currentValue += 3
         }
     }
 }

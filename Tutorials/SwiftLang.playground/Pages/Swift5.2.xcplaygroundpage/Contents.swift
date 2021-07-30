@@ -17,6 +17,7 @@ struct User {
     }
 }
 
+//Use Key Path Expressions as Closure / Functions
 let eric = User(name: "Eric Effiong", age: 18, bestFriend: "Otis Milburn")
 let maeve = User(name: "Maeve Wiley", age: 19, bestFriend: nil)
 let otis = User(name: "Otis Milburn", age: 17, bestFriend: "Eric Effiong")
@@ -24,10 +25,16 @@ let users = [eric, maeve, otis]
 
 let userNames = users.map(\.name)
 
-let oldUserNames = users.map { $0.name }
-print("user Names \(userNames) Old \(oldUserNames)")
+let idxNames = users.map { $0.name }
+print("user Names \(userNames) index \(idxNames)")
+
 let voters = users.filter(\.canVote)
+for vot in voters {
+    print("voters", vot.name)
+}
+
 let bestFriends = users.compactMap(\.bestFriend)
+print("bestFriends",bestFriends)
 
 // Callable values of user-defined nominal types
 struct Dice {
@@ -66,14 +73,6 @@ for i in 0...4 {
     print(steps(count: 10))
 }
 
-
-
-
-
-
-
-
-
 // -- crazy
 
 extension Double {
@@ -89,5 +88,15 @@ let sevenNumber = 2.0
 
 print(sevenNumber())
 print(sevenNumber.addSeven())
+print(7())
+
+/* Whats new in 5.3 */
+
+/* Whats new in 5.4 */
+
+/* Whats new in 5.5
+ sync await - Swift structured concurrency
+ */
+
 
 //: [Next](@next)

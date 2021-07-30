@@ -23,7 +23,7 @@ struct User {
 
 // John Appleseed
 var user = User(firstName: "john", lastName: "appleseed")
-print("\(user.firstName)  \(user.lastName)")
+print("\(user.firstName) \(user.lastName)")
 
 // John Apple
 user.lastName = "apple"
@@ -35,7 +35,7 @@ print("\(user.firstName)  \(user.lastName)")
     }
 
     init(wrappedValue: Int) {
-        self.wrappedValue = wrappedValue + 2
+        self.wrappedValue = wrappedValue + 2 // can be the cause of a bug!
     }
     
     var projectedValue: AddOne { return self }
@@ -46,14 +46,21 @@ struct AddOneNumber {
     
     func infoWrapper() {
         print("~~~~ Info ~~~~")
-        print(myNum) // `wrappedValue`
-        print(_myNum) // wrapper type itself
-        print($myNum) // `projectedValue`
+        print("wrappedValue= ", myNum)
+        print("wrapper type itself= ",_myNum)
+        print("projectedValue= ", $myNum)
     }
+    
 }
-var theNum = AddOneNumber(myNum: 5/*"5"*/)
-theNum.myNum = 4
-print(theNum.myNum)
 
-theNum.infoWrapper()
+var theNum = AddOneNumber(myNum: 5)
+
+print("theNum is init " , theNum.$myNum)
+
+theNum.myNum = 4
+print("theNum set with did set ", theNum.$myNum)
+
+//theNum.infoWrapper()
+
+print("End")
 //: [Next](@next)

@@ -19,11 +19,11 @@ import Combine
  ## <Type><Error>
  <type = Int>, <Error = None>
  */
-let publisher1 = Just(42)
+let publisherJust = Just(42)
 
 // You need to _subscribe_ to receive values (here using a sink with a closure)
-let subscription1 = publisher1.sink { value in
-	print("Received value from publisher1: \(value)")
+let subscription1 = publisherJust.sink { value in
+	print("Received value from publisherJust: \(value)")
 }
 
 /*:
@@ -31,23 +31,23 @@ let subscription1 = publisher1.sink { value in
 "publish" a series of values immediately
  */
 //<Int> < Never>
-let publisher2 = [1,2,3,4,5].publisher
+let publisherSequ = [1,2,3,4,5].publisher
 
 //<Int> <Never>
-let subscription2 = publisher2
+let subscriptionSequ = publisherSequ
     //.map{Int($0)}
     .sink {value in
-        print("Received value from publisher2: \(value + 12)")
+        print("Received value from publisherSequ: \(value + 12)")
     }
 
 //<Int> < Never>
 let publisher_string = ["1", "2"].publisher
 
 //<Int> <Never>
-let subscription3 = publisher_string
-    .map{Int($0)}
+let subscriptionString = publisher_string
+    .map{Int($0)} // remove this to get error int != String
     .sink {value in
-        print("Received value from publisher2: \(value! + 12)")
+        print("Received value from publisherString: \(value! + 12)")
     }
 
 // On collection vs Publisher
@@ -68,7 +68,7 @@ class MyClass {
 	}
 }
 
-let object = MyClass()
-let subscription4 = publisher2.assign(to: \.property, on: object)
+let MyClassObj = MyClass()
+let subscription4 = publisherSequ.assign(to: \.property, on: MyClassObj)
 
 //: [Next](@next)

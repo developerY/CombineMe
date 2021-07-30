@@ -3,6 +3,12 @@ import SwiftUI
 import PlaygroundSupport
 import KingfisherSwiftUI
 
+/*
+ Swift Package Manager
+ File > Swift Packages > Add Package Dependency
+ Add `https://github.com/onevcat/Kingfisher.git`
+ Select "Up to Next Major" with "6.0.0"
+ */
 
 struct ContentView : View {
     @State private var isButtonVisible = true

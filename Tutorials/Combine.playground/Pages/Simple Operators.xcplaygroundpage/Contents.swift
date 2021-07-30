@@ -14,33 +14,33 @@ import Combine
 - works like Swift's `map`
 - ... operates on values over time
 */
-let publisher1 = PassthroughSubject<Int, Never>()
+let publisherPass = PassthroughSubject<Int, Never>()
 
 // simple map
-let publisher2 = publisher1.map { value in
+let publisherPassMap = publisherPass.map { value in
 	value + 100
 }
 
-let subscription1 = publisher1
+let subscriptionPass = publisherPass
     //.map { $0 + 100 } // same like a collection class
 	.sink { value in
-		print("Subscription1 received integer: \(value)")
+		print("SubscriptionPass received integer: \(value)")
 }
 
-let subscription2 = publisher2
+let subscriptionPassMap = publisherPassMap
 	.sink { value in
-		print("Subscription2 received integer: \(value)")
+		print("SubscriptionPassMap received integer: \(value)")
 }
 
 print("* Demonstrating map operator")
-print("Publisher1 emits 28")
-publisher1.send(28)
+print("PublisherPass emits 28")
+publisherPass.send(28)
 
-print("Publisher1 emits 50")
-publisher1.send(50)
+print("PublisherPass emits 50")
+publisherPass.send(50)
 
-subscription1.cancel()
-subscription2.cancel()
+subscriptionPass.cancel()
+subscriptionPassMap.cancel()
 
 /*:
 ## Example: `filter`
@@ -48,25 +48,25 @@ subscription2.cancel()
 - ... operates on values over time
 */
 
-let publisher3 = publisher1.filter {
+let publisherPassEven = publisherPass.filter {
 	// only let even values pass through
 	($0 % 2) == 0
 }
 
-let subscription3 = publisher3
+let subscriptionPassEven = publisherPassEven
     //.filter{ $0 < 15 }
 	.sink { value in
-		print("Subscription3 received integer: \(value)")
+		print("SubscriptionPassEven received integer: \(value)")
 }
 
 print("\n* Demonstrating filter operator")
-print("Publisher1 emits 14")
-publisher1.send(14)
+print("PublisherPass emits 14")
+publisherPass.send(14)
 
-print("Publisher1 emits 15")
-publisher1.send(15)
+print("PublisherPass emits 15")
+publisherPass.send(15)
 
-print("Publisher1 emits 16")
-publisher1.send(16)
+print("PublisherPass emits 16")
+publisherPass.send(16)
 
 //: [Next](@next)

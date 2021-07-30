@@ -94,6 +94,7 @@
 		54AABF2E24DE267000935CD8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		54AABF3024DE26A400935CD8 /* BikeStationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeStationView.swift; sourceTree = "<group>"; };
 		54AABF3724DF8A5C00935CD8 /* BikeMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeMapView.swift; sourceTree = "<group>"; };
+		69315B4526AA2DCB00426388 /* XCode.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = XCode.playground; sourceTree = "<group>"; };
 		E8E7A71124C3E4DE00FE7396 /* CombineMeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineMeApp.swift; sourceTree = "<group>"; };
 		E8E7A71224C3E4DE00FE7396 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E8E7A71324C3E4DF00FE7396 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -196,6 +197,7 @@
 		5446054824DCB37500B8BB19 /* Tutorials */ = {
 			isa = PBXGroup;
 			children = (
+				69315B4526AA2DCB00426388 /* XCode.playground */,
 				54A035CA24E6EC900066B0B7 /* SwiftLang.playground */,
 				5424228824E30F4E00EF420E /* Combine.playground */,
 				54044E7024E2FAEF006647FF /* SwiftUI.playground */,
