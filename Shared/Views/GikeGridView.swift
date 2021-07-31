@@ -32,7 +32,7 @@ struct GikeGridView: View {
                             Text(item.name)
                         }
                     }
-                }.refreshable {viewModel.restoreAll() }
+                }//.refreshable {viewModel.restoreAll() }
             }.padding(.horizontal)
             
             

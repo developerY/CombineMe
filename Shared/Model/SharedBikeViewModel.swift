@@ -56,7 +56,6 @@ class SharedBikeViewModel : ObservableObject, Identifiable {
     }
     
     func deleteAll() {
-        stationCopy = stations
         stations = []
     }
     
@@ -66,7 +65,8 @@ class SharedBikeViewModel : ObservableObject, Identifiable {
     
     
     func restoreAll() {
-        stations = stationCopy
+        fetchBikeInfo()
+        //stations = stationCopy
     }
     
     // Using async / await
