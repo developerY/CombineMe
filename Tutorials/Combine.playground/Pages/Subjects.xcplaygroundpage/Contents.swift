@@ -25,9 +25,9 @@ relay.send("Hello") // relay publisher
 relay.send("World!")
 
 // so this acts the same as a regular Publishers.Sequence<[String], Never>
-let hw = ["hello","world"].publisher // hw publisher
+let hw_sub : Publishers.Sequence<[String], Never> = ["hello","world"].publisher // array publisher
 
-hw.sink {value in                    // hw sub
+hw_sub.sink {value in                    // hw sub
     print("sub1 = \(value)")
 }
 

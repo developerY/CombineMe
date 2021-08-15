@@ -5,7 +5,6 @@ import SwiftUI
 
 var greeting = "Hello, playground"
 
-//: [Next](@next)
 struct Message: Decodable, Identifiable {
     let id: Int
     let from: String
@@ -37,3 +36,7 @@ struct ContentView: View {
         }
     }
 }
+
+
+//: [Next](@next)
+

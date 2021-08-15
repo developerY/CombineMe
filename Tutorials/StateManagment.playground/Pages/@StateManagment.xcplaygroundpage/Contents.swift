@@ -51,6 +51,9 @@ struct StateExample: View {
     
     var body: some View {
         VStack {
+            Image(uiImage: UIImage(named: "WhenToUse.jpg")!).resizable()
+                .frame(width: 100.0, height: 100.0)
+            
             Group {
                 Text("intValue \(intValue)")
                 Button("Increment @State") {

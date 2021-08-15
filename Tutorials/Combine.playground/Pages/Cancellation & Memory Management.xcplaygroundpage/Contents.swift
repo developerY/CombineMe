@@ -21,13 +21,16 @@ class MyClass {
 
 	init(subject: PassthroughSubject<Int,Never>) {
         ///*cancellable =*/ subject.sink { value in
-        //var variable: Int = 0
-		cancellable = subject.sink { value in
-        //subject.sink { value in
+        // var variable: Int = 0
+        
+        // must hold cancellable or it will not run
+        // subject.sink { value in // uncomment to loose cancellable
+
+		cancellable = subject.sink { value in // comment out to loose cancellable
 			// Note that we are introducing a retain cycle on `self`
 			// on purpose, by not using `weak` or `unowned`
             self.variable += value
-            //print(value)
+            // print(value)
 		}
 	}
 

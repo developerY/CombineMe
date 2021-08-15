@@ -20,12 +20,24 @@ let firstStepDone = DispatchSemaphore(value: 0)
 */
 print("* Demonstrating receive(on:)")
 
-let passThroughSub = PassthroughSubject<String, Never>()
+let passThroughSbj = PassthroughSubject<String, Never>()
 let receivingQueue = DispatchQueue(label: "receiving-queue")
-let passSub = passThroughSub.receive(on: receivingQueue)
+let subscriptionPassThroSbj = passThroughSbj.receive(on: receivingQueue)
+    .sink { value in
+        print("Received value: \(value) on thread \(Thread.current)")
+        if value == "Four" {
+            firstStepDone.signal()
+        }
+}
+
+for string in ["One","Two","Three","Four"] {
+    DispatchQueue.global().async {
+        passThroughSbj.send(string)
+    }
+}
 
 // Subscribe on receiving-queue
-passSub.sink { value in
+passThroughSbj.sink { value in
     print("Received value: \(value) on thread \(Thread.current.description)")
 		if value == "Four" {
 			firstStepDone.signal()
@@ -35,7 +47,7 @@ passSub.sink { value in
 for string in ["One","Two","Three","Four"] {
 	DispatchQueue.global().async {
         // publishing on "receiving-queue"
-        passThroughSub.send(string)
+        passThroughSbj.send(string)
 	}
 }
 

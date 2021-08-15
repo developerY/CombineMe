@@ -1,4 +1,5 @@
 import UIKit
+import CoreGraphics
 
 /*:
  // Intialization is a entire day long class -- Init everything or nothing
@@ -52,7 +53,7 @@ let taylor2 = Person(name: "Taylor Swift")
 
 // When to use a struct vs class
 // always use a sturct unless you need ...
-/*
+/*:
  Classes can inherit from another class, which you can’t do with structs. Conversely, structs can implement protocols.
  Classes can be deinitialized, i.e. they can implement a deinit function, and you can make one or more references to the same class (i.e., classes are a reference type).
  Classes come with the built-in notion of identity, because they’re reference types. With the identity operator === you can check if two references (variables, constants, properties, etc.) refer to the same object.
@@ -66,4 +67,38 @@ let taylor2 = Person(name: "Taylor Swift")
  }
  */
 
-var str = "Hello, playground"
+
+struct Item {
+    var name : String
+    mutating func setName(n:String) {
+        name = n
+    }
+}
+
+class ClassItem {
+    var name: String = "none"
+    func setName(n:String) {
+        name = n
+    }
+}
+
+let oneItem = Item.init(name: "One")
+let twoItem = Item.init(name: "Two")
+
+func printItem(it:Item){
+    print(it.name)
+    //it.setName(n: "new")
+}
+
+func printItem(it:ClassItem) {
+    print(it.name)
+    it.setName(n: "new")
+}
+
+let classOne = ClassItem()
+
+printItem(it: classOne)
+
+print(classOne.name)
+
+

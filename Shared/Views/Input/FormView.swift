@@ -53,6 +53,19 @@ struct FormView: View {
 
 struct FormView_Previews: PreviewProvider {
     static var previews: some View {
-        FormView()
+        Group {
+            FormView()
+                .previewDevice("iPhone 12 Pro Max")
+                .previewDisplayName("iPhone Big")
+            
+            FormView()
+                .previewDevice("iPhone SE")
+                .previewDisplayName("iPhone SE")
+            
+            FormView()
+                .previewDevice("iPhone 12 mini")
+                .previewDisplayName("iPhone mini")
+                .environment(\.colorScheme, .dark)
+        }
     }
 }

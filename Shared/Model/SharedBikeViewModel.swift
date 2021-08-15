@@ -57,15 +57,19 @@ class SharedBikeViewModel : ObservableObject, Identifiable {
     
     func deleteAll() {
         stations = []
+        sysInfo = nil
     }
     
     func deleteFirst() {
-        stations.removeFirst(1)
+        if(!stations.isEmpty) {
+            stations.removeFirst(1)
+        }
     }
     
     
     func restoreAll() {
         fetchBikeInfo()
+        fetchSysInfo()
         //stations = stationCopy
     }
     

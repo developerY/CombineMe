@@ -7,20 +7,14 @@
 
 import SwiftUI
 
+class AppTitle: ObservableObject {
+    @Published var title = "Shared Bikes"
+}
+
 struct ContentView: View {
-        
+    @StateObject var appTitle = AppTitle()
     var body: some View {
-        NavigationView {
-                   VStack {
-                    GikeGridView()
-                    NavigationLink(destination: BikeStationView()) {
-                        Text("Bike Stations")
-                    }.navigationBarTitle("Bike Stations")
-                    /*NavigationLink(destination: HomeView()) {
-                           Text("Home")
-                       }.navigationBarTitle("Bike Home")*/
-                    }
-        }
+        HomeView().environmentObject(appTitle)
     }
 }
 

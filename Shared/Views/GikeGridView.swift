@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct GikeGridView: View {
+    @EnvironmentObject var appTitle: AppTitle
     @ObservedObject var viewModel = SharedBikeViewModel()
+
     
     // use SF Symbols
     
@@ -21,6 +23,7 @@ struct GikeGridView: View {
             let name = viewModel.sysInfo?.name ?? "name"
             let phone = viewModel.sysInfo?.phoneNumber ?? "number"
             let stations = viewModel.stations
+            Text(appTitle.title)
             Text(name + " / Phone: " + phone)
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 20) {
@@ -64,5 +67,6 @@ struct GikeGridView: View {
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
         GikeGridView()
+.previewInterfaceOrientation(.portraitUpsideDown)
     }
 }

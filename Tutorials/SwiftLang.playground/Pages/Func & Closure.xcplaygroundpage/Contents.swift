@@ -33,6 +33,12 @@ func greet3(_ person: String,_ day: String,_ sday:String) -> String { // this lo
 print(greet3("John", "Wednesday", "Sunday"))
 
 
+//var completionHandler: (Float)->Void = {(arg: Float) -> Void in}
+//var completionHandler: (Float)->Void = { arg in }
+var completionHandler: (Float)->Void = {num in  print(num)}
+completionHandler(4.0)
+
+
 // Swift is a higher order functional programming lang.
 // a function is just a type
 func makeIncrementer() -> ((Int) -> Int) {
@@ -41,6 +47,7 @@ func makeIncrementer() -> ((Int) -> Int) {
     }
     return addOne
 }
+// var is a function
 var increment = makeIncrementer()
 print("This was incremented" , increment(7))
 
@@ -58,6 +65,7 @@ func capNum() -> ((Int) -> Int) {
     return getNum
 }
 
+// capNums contains numbers!
 var capNums = capNum()
 print("The second in numbers is:", capNums(1))
 
@@ -95,15 +103,38 @@ reversedNames = names.sorted(by: { $0 > $1 } ) // use $#
 reversedNames = names.sorted(by: >) // because sort takes two args and > uses them we can remove them
 
 // trainling closure -- Kotlin also does this
-func someFunctionThatTakesAClosure(closure: () -> Void) {
+func someFunctionThatTakesAClosure(closure: ([String]) -> Void) {
     // function body goes here
+    closure(names)
 }
-someFunctionThatTakesAClosure(closure: {
-    // closure's body goes here
+
+var closeCall : ([String]) -> Void = { people in
+    for person in people {
+        print(person)
+    }
+}
+
+someFunctionThatTakesAClosure(closure: closeCall)
+
+// When calling it
+someFunctionThatTakesAClosure(closure: { people in
+    for person in people {
+        print(person)
+    }
 })
-someFunctionThatTakesAClosure() {
-    // trailing closure's body goes here
+
+someFunctionThatTakesAClosure() { people in
+    for person in people {
+        print(person)
+    }
 }
+
+someFunctionThatTakesAClosure { people in
+    for person in people {
+        print(person)
+    }
+}
+
 testFunctionWithEscapingClosure {
     print("closure called")
 }

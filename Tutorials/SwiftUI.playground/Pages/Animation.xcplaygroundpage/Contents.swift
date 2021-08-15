@@ -1,7 +1,7 @@
 //: [Previous](@previous)
 import SwiftUI
 import PlaygroundSupport
-import KingfisherSwiftUI
+//import KingfisherSwiftUI
 
 /*
  Swift Package Manager

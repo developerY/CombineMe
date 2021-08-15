@@ -11,14 +11,19 @@ var str = "Hello, playground"
  3) The parent then positions the child in its coordinate space.
  */
 
-struct ContentView: View {
+
+/*
+ background covers text
+ */
+struct ContentView1: View {
     var body: some View {
-        Text("Hello, World!")
+        Text("Hello, World1!")
             .background(Color.red)
     }
 }
 
-struct ContentView1: View {
+/* bg + 20 + text*/
+struct ContentView2: View {
     var body: some View {
         Text("Hello, World2!")
             .padding(20)
@@ -26,10 +31,12 @@ struct ContentView1: View {
     }
 }
 
-struct ContentView2: View {
+
+/* set position + text */
+struct ContentView3: View {
     var body: some View {
         HStack{
-        Text("Hello, world!")
+        Text("Hello, world3!")
             .background(Color.red)
             .position(x: 100, y: 100)
         }.frame(minWidth: 500,
@@ -41,11 +48,12 @@ struct ContentView2: View {
     
 }
 
-struct ContentView3: View {
+/* background covers the whole frame */
+struct ContentView4: View {
     var body: some View {
         HStack{
-        Text("Hello, world!")
-            .position(x: 100, y: 100)
+        Text("Hello, world4!")
+            .position(x: 100, y: 100) // whole size
             .background(Color.red) // whole place red
         }.frame(minWidth: 500,
                 maxWidth: .infinity,
@@ -56,10 +64,11 @@ struct ContentView3: View {
     
 }
 
-struct ContentView4: View {
+/* background color goes to offset not warp text */
+struct ContentView5: View {
     var body: some View {
         HStack{
-        Text("Hello, world!")
+        Text("Hello, world5!")
             .offset(x: 100, y: 100)
             .background(Color.red)
         }.frame(minWidth: 500,
@@ -71,10 +80,11 @@ struct ContentView4: View {
     
 }
 
-struct ContentView5: View {
+/* correct view  */
+struct ContentViewG: View {
     var body: some View {
         HStack {
-        Text("Hello, world!")
+        Text("Hello, worldG!")
             .background(Color.red)
             .offset(x: 100, y: 100)
         }.frame(minWidth: 500,
