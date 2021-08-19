@@ -27,12 +27,27 @@ struct TestView: View {
 struct BikeList: View {
     var body: some View {
         NavigationView {
-            NavigationLink(destination: BikeStationView()) {
-                Text("Bike Stations")
-            }.navigationBarTitle("Bike Stations")
-        }
+            VStack {
+                Text("Bike Image")
+                ZStack {
+                    
+                    Image(uiImage: UIImage(named:"bike.jpg")!).resizable()//.frame(width: 100, height: 100)
+                    //Image(uiImage: UIImage(named: "Material.png")!).resizable()
+                    VStack {
+                        Label("Bike", systemImage: "bicycle").padding().background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 8))
+                            .foregroundColor(.secondary)
+                        Text("Let find a station ").padding().background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 8))
+                            .foregroundColor(.secondary)
+                    }
+                }
+                NavigationLink(destination: BikeStationView()) {
+                    Text("Bike Stations")
+                }.navigationBarTitle("Bike Stations")
+            }.padding()
+        }.padding()
     }
 }
+
 
 struct HomeView: View {
     var body: some View {

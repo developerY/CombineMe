@@ -27,9 +27,10 @@ struct BikeStationView: View {
             }.navigationBarTitle("Bike Stations")
                 .navigationBarItems(trailing: EditButton())
                 .environment(\.editMode, self.$isEditMode)
-                .searchable(text: $searchText)            
+                .searchable(text: $searchText)
         }
     }
+    
     
     var searchResults: [Station] {
         if searchText.isEmpty {
