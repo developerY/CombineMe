@@ -46,13 +46,13 @@ private var systemDataProvider: DataProvider = DataProvider()
  * You're wrapping a value type (struct or enum).
  */
 struct StateExample: View {
-    /* this struc is going to static memory so we can not put a variable in it*/
+    /* this struct is going to static memory so we can not put a variable in it*/
     @State private var intValue = 0
     
     var body: some View {
         VStack {
-            Image(uiImage: UIImage(named: "WhenToUse.jpg")!).resizable()
-                .frame(width: 100.0, height: 100.0)
+            //Image(uiImage: UIImage(named: "WhenToUse.jpg")!).resizable()
+            //    .frame(width: 100.0, height: 100.0)
             
             Group {
                 Text("intValue \(intValue)")

@@ -31,8 +31,10 @@ struct ContentView : View {
             VStack {
             Text("Hello, world!")
                 .offset(y: isButtonVisible ? 0 : 300)
-                .animation(.easeInOut)
-                //.animation(.spring())
+                // new in Swift iOS 15!
+                //.animation(.linear(duration: 1), value: isButtonVisible)
+                .animation(.easeInOut(duration: 2), value: isButtonVisible)
+                //.animation(.spring(), value: isButtonVisible)
             }
             Divider()
             
@@ -51,8 +53,10 @@ struct ContentView : View {
                     .rotationEffect(.degrees(showDetail ? 90 : 0))
                     .scaleEffect(showDetail ? 10.5 : 1)
                     .padding()
-                    .animation(.easeInOut)
-                    //.animation(.spring())
+                    .animation(.easeInOut(duration: 1), value:showDetail)
+                    //.animation(.spring(), value:showDetail)
+                    //.animation(.easeInOut(duration: 2), value:isButtonVisible)
+
             }
         }.frame(minWidth: 500,
          maxWidth: .infinity,

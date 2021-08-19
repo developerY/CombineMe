@@ -101,7 +101,6 @@
 		69315B4526AA2DCB00426388 /* XCode.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = XCode.playground; sourceTree = "<group>"; };
 		810B9C6326C71E2700EF9CD3 /* CombineUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineUI.swift; sourceTree = "<group>"; };
 		810B9C6626C71EEA00EF9CD3 /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
-		817CDAAC26C5F09600BA2BA1 /* CombineUI.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CombineUI.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E8E7A71124C3E4DE00FE7396 /* CombineMeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineMeApp.swift; sourceTree = "<group>"; };
 		E8E7A71224C3E4DE00FE7396 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E8E7A71324C3E4DF00FE7396 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -117,7 +116,7 @@
 		E8E7A73724C3E4DF00FE7396 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		E8E7A73924C3E4DF00FE7396 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8E9D73924CE7CAB00155C87 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		E8E9D73B24CE7E1100155C87 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E8E9D73B24CE7E1100155C87 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.markdown; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,7 +205,6 @@
 		5446054824DCB37500B8BB19 /* Tutorials */ = {
 			isa = PBXGroup;
 			children = (
-				817CDAAC26C5F09600BA2BA1 /* CombineUI.playground */,
 				69315B4526AA2DCB00426388 /* XCode.playground */,
 				54A035CA24E6EC900066B0B7 /* SwiftLang.playground */,
 				5424228824E30F4E00EF420E /* Combine.playground */,

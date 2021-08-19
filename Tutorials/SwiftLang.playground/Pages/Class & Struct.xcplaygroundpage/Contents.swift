@@ -20,8 +20,8 @@ shape.numberOfSides = 7
 print(shape.simpleDescription())
 
 
-// Struct is a value type and the key to Protocal Orented Programming
-// comform to protcal but not inheretanc.
+// Struct is a value type and the key to Protocol Oriented Programming
+// conform to protocol but not inheritance.
 struct Card {
     var rank: Int
     var suit: String

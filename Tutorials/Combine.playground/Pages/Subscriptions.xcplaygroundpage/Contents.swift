@@ -37,7 +37,7 @@ subject.handleEvents(receiveSubscription: { (subscription) in
 subject.send("Hello!")
 subject.send("Hello again!")
 subject.send("Hello for the last time!")
-// subject.send(completion: .failure(.somethingWentWrong)) // if commented normal cacellelation
+// subject.send(completion: .failure(.somethingWentWrong)) // if commented normal cancellation
 subject.send("Hello?? :(")
 
 //: [Next](@next)

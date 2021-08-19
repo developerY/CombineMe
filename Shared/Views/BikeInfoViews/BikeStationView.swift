@@ -10,9 +10,11 @@ import SwiftUI
 struct BikeStationView: View {
     @ObservedObject var viewModel = SharedBikeViewModel()
     @State var isEditMode: EditMode = .inactive
+    @State private var searchText = ""
+    
     
     var body: some View {
-        List(viewModel.stations) { station in
+        List(searchResults) { station in
             NavigationLink(destination: BikeMapView(station: station)) {
                 HStack {
                     VStack(alignment: .leading) {
@@ -23,12 +25,22 @@ struct BikeStationView: View {
                     }
                 }
             }.navigationBarTitle("Bike Stations")
-            .navigationBarItems(trailing: EditButton())
-            .environment(\.editMode, self.$isEditMode)
-            
+                .navigationBarItems(trailing: EditButton())
+                .environment(\.editMode, self.$isEditMode)
+                .searchable(text: $searchText)            
         }
     }
+    
+    var searchResults: [Station] {
+        if searchText.isEmpty {
+            return viewModel.stations
+        } else {
+            return viewModel.stations.filter { $0.name.contains(searchText) }
+        }
+    }
+
 }
+
 
 
 struct BikeView_Previews: PreviewProvider {

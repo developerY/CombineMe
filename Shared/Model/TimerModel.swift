@@ -8,6 +8,7 @@
 import Foundation
 // import Combine
 // Only want one and use as a reference everywhere
+@MainActor
 class TimerModel : ObservableObject, Identifiable {
     
     @Published var num:Int  = 7
@@ -17,11 +18,10 @@ class TimerModel : ObservableObject, Identifiable {
     
     // From Swift 5.5
     func incNum() async {
-        await Task.sleep(2_000_000_000) // called evey two sec.
+        await Task.sleep(2_000_000_000) // called every two sec.
         num += 1
     }
     
-    //@MainActor
     func start() async {
         for _ in 0...100 {
             await incNum()

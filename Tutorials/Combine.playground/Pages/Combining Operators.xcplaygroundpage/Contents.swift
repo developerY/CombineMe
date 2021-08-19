@@ -25,7 +25,7 @@ let passwordPublisher = PassthroughSubject<String, Never>()
 //: **combine** the latest value of each input to compute a validation
 let validatedCredentialsSubscription = Publishers
 	.CombineLatest(usernamePublisher, passwordPublisher)
-    .print("step -->") // amazing for debuging
+    .print("step -->") // amazing for debugging
     .map { (username, password) -> Bool in
         !username.isEmpty && !password.isEmpty && password.count > 12
     }
@@ -56,7 +56,7 @@ let publisher5 = [31,41,52].publisher
 
 let mergedPublishersSubscription = Publishers
 	.Merge(publisher1, publisher2) // , publisher3, publisher4, publisher5)
-    //.print("step2 -->") // amazing for debuging
+    //.print("step2 -->") // amazing for debugging
 	.sink { value in
 		print("Merge: subscription received value \(value)")
 }

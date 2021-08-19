@@ -26,13 +26,12 @@ print("reducer", num)
 let myd = mydata.publisher
 myd.reduce(0,{x,y in x + y}).sink( receiveValue: {data in print("pub reducer", data)})
 
-for i in 1...3 {print("\n")} // output spacer
+print("\n")// output space in playground to separate the output
 
 [1, 2, 3].publisher.flatMap({ int in
-    // makes a bunch of publishers
+    // makes a bunch of publishers to be flattened
     return (0..<int).publisher.print("flat ->")
-    
-  }).sink(receiveCompletion: { _ in }, receiveValue: { value in
+  }).sink(receiveCompletion: { id in print("name", id)}, receiveValue: { value in
     print("value: \(value)")
   })
 

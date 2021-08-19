@@ -16,16 +16,19 @@ func crazy(extName intName:String, extName1 intName1 :String, extName2 intName2:
 }
 print(crazy(extName:"one", extName1:"two", extName2:2))
 
+
 func greet1(person: String, day: String) -> String {
     return "Hello \(person), today is \(day)."
 }
 print(greet1(person: "Bob", day: "Tuesday"))
 //print(greet1(day: "Monday", person: "ash"))
 
+
 func greet2(_ person: String, on day: String) -> String {
     return "Hello \(person), today is \(day)."
 }
 print(greet2("John", on:"Wednesday"))
+
 
 func greet3(_ person: String,_ day: String,_ sday:String) -> String { // this looks like every other language
     "Hello \(person), today is \(day), or maybe \(sday)."
@@ -35,7 +38,7 @@ print(greet3("John", "Wednesday", "Sunday"))
 
 //var completionHandler: (Float)->Void = {(arg: Float) -> Void in}
 //var completionHandler: (Float)->Void = { arg in }
-var completionHandler: (Float)->Void = {num in  print(num)}
+var completionHandler: (Float)->Void = {num in print("This closure print s a num ", num)}
 completionHandler(4.0)
 
 
@@ -102,21 +105,13 @@ reversedNames = names.sorted(by: { s1, s2 in s1 > s2 } ) // remove return
 reversedNames = names.sorted(by: { $0 > $1 } ) // use $#
 reversedNames = names.sorted(by: >) // because sort takes two args and > uses them we can remove them
 
-// trainling closure -- Kotlin also does this
+// trailing closure -- Kotlin also does this
 func someFunctionThatTakesAClosure(closure: ([String]) -> Void) {
     // function body goes here
-    closure(names)
+    closure(names) // names is the input to the closure.
 }
 
-var closeCall : ([String]) -> Void = { people in
-    for person in people {
-        print(person)
-    }
-}
-
-someFunctionThatTakesAClosure(closure: closeCall)
-
-// When calling it
+// trailing closure is only at the call sight.
 someFunctionThatTakesAClosure(closure: { people in
     for person in people {
         print(person)
@@ -135,9 +130,14 @@ someFunctionThatTakesAClosure { people in
     }
 }
 
-testFunctionWithEscapingClosure {
-    print("closure called")
+var closeCall : ([String]) -> Void = { people in
+    for person in people {
+        print(person)
+    }
 }
+
+// same as the above
+someFunctionThatTakesAClosure(closure: closeCall)
 
 /* Swift 5.1 features
 struct ContentViewHW: View {

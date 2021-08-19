@@ -1,4 +1,4 @@
-// SwiftUI 2 Playgound
+// SwiftUI 2 Playground
 import SwiftUI
 import PlaygroundSupport
 
@@ -65,6 +65,7 @@ struct ContentViewSlider: View {
             VStack {
                 Stepper("Enter your age", value: $age, in: 0...130)
                 Text("Your age is \(age)")
+                // ColouPickerView() // very easy to add views.
             }
         }/*.frame(minWidth: 0,
                 maxWidth: .infinity,
@@ -75,7 +76,7 @@ struct ContentViewSlider: View {
     }
 }
 
-struct ColourPickerView: View {
+struct ColorPickerView: View {
   @State private var bgColor =
     Color(.sRGB, red: 0.98, green: 0.9, blue: 0.2)
   

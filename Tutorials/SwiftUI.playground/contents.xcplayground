@@ -11,5 +11,10 @@
         <page name='Lists &amp; Forms'/>
         <page name='AsyncImageURL'/>
         <page name='TaskView'/>
+        <page name='Badge'/>
+        <page name='MarkDownText'/>
+        <page name='Swipe'/>
+        <page name='search'/>
+        <page name='Material'/>
     </pages>
 </playground>

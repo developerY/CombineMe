@@ -8,12 +8,10 @@ Tutorial for 360iDev 2021 Conference :-)
 [On YouTube] (https://www.youtube.com/watch?v=2eezk9u2lcE&list=PLnD_TKDSaFyXBC1yqsWCdBMmV4Gq99u7u&index=3)
 
 ****Requirements****
-Mac OS 10.15.6 or newer because we are using XCode 12 Beta 2.
+Mac OS 10.15.6 or newer because we are using XCode 13 Beta 5.
 
 If you do not have these you can still follow along ...
 We will work in pure SwiftUI (No UIKit)
-
-*CoreData as it is not an option for XCode 12.  Apple might be building a replacement ???*
 
 Talks covering both Android and iOS (given @ GDG SF / Berkley)
 https://docs.google.com/presentation/d/1nVVyWUnnenSJa-vyr_B0sfYr9uPhFFzJyUdKu3NmwrU/edit?ts=60f89549#slide=id.p
@@ -29,12 +27,12 @@ We start with a presentation covering Why SwiftUI? / Combine Framework.
 
 #### 9am - 9:30am - Swift 5.3 / 5.4 / (5.5?) (Review)
 [Part 1 Slides 1 - 22](https://docs.google.com/presentation/d/1dKb4akc9U4xW9_L57Gx21qNbH33SVJjdvmSaFXkCCeI/edit?usp=sharing)
-[Swift 5.2 Lang Playgrounds]
+[Swift 5 Lang Playgrounds]
 * Basic language constructs
 * Methods, Functions, Closures (escaping)
 * Property Wrappers 
 * Swift Package Manager -- https://github.com/onevcat/Kingfisher - example
-* MVVM & MVI Architecture explained
+* MVVM Architecture explained
 
 #### 9:30am - 10pm - SwiftUI 3 (Tutorial)
 [Part 2 Slides 23 - 51](https://docs.google.com/presentation/d/1dKb4akc9U4xW9_L57Gx21qNbH33SVJjdvmSaFXkCCeI/edit#slide=id.g5e0c07467c_0_1823)

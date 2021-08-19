@@ -41,17 +41,17 @@ struct HomeView: View {
                 .tabItem {
                     Image(systemName: "bicycle.circle")
                     Text("Stations")
-                }
+                }.badge(2) // now very easy to add
             BikeList()
                 .tabItem {
                     Image(systemName: "bicycle")
                     Text("Map")
-                }
+                }.badge(5)
             CombineUI()
                 .tabItem {
                     Image(systemName: "arrow.triangle.capsulepath")
                     Text("Combine")
-                }
+                }.badge(7)
         }
         /*NavigationView {
          VStack {

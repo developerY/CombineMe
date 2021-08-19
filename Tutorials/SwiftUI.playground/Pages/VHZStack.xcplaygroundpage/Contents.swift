@@ -29,7 +29,7 @@ struct ContentView: View {
             .border(Color.green)
             .frame(width: 300, height: 150)
             .border(Color.red)
-            Text("This guy need to stop biking and start coding")
+            Text("This guy needs to stop biking and start coding")
         }
         .border(Color.blue)
         .frame(width: 500, height: 500)
