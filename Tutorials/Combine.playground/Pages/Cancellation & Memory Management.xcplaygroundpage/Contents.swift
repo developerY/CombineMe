@@ -21,7 +21,7 @@ class MyClass {
 
 	init(subject: PassthroughSubject<Int,Never>) {
         ///*cancellable =*/ subject.sink { value in
-        // var variable: Int = 0
+        var variable: Int = 0
         
         // must hold cancellable or it will not run
         // subject.sink { value in // uncomment to loose cancellable
@@ -61,7 +61,7 @@ emitNextValue(from: [1,2,3,4,5,6,7,8], after: 0.5)
 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
 	print("Nullify object")
 	//: **TODO** uncomment the next line to see the change
-	//object?.cancellable = nil // set the cancellable to nil will stop the run
+	// object?.cancellable = nil // set the cancellable to nil will stop the run
 	object = nil
 }
 
