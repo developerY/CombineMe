@@ -36,6 +36,14 @@
 		810B9C6726C71EEA00EF9CD3 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810B9C6626C71EEA00EF9CD3 /* TimerModel.swift */; };
 		810B9C6826C71EEA00EF9CD3 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810B9C6626C71EEA00EF9CD3 /* TimerModel.swift */; };
 		817CDAAF26C61D9A00BA2BA1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 817CDAAE26C61D9A00BA2BA1 /* Kingfisher */; };
+		C5D9A93226D2A51200965D92 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AABF2E24DE267000935CD8 /* HomeView.swift */; };
+		C5D9A93326D2A51F00965D92 /* CombineUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810B9C6326C71E2700EF9CD3 /* CombineUI.swift */; };
+		C5D9A93426D2A52200965D92 /* GikeGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54044E6A24E0C56C006647FF /* GikeGridView.swift */; };
+		C5D9A93526D2A52B00965D92 /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54044E6824E0C33E006647FF /* FormView.swift */; };
+		C5D9A93626D2A53900965D92 /* SharedBikeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544604F524D60A0600B8BB19 /* SharedBikeViewModel.swift */; };
+		C5D9A93726D2A53F00965D92 /* BikeInfoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5429EA1324DCEFB800B7AE59 /* BikeInfoAPI.swift */; };
+		C5D9A93826D2A54900965D92 /* SysInfoDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5446050D24D612A000B8BB19 /* SysInfoDataClass.swift */; };
+		C5D9A93926D2A54B00965D92 /* SystemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5446050B24D6121500B8BB19 /* SystemInfo.swift */; };
 		E8E7A72D24C3E4DF00FE7396 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E7A72C24C3E4DF00FE7396 /* Tests_iOS.swift */; };
 		E8E7A73824C3E4DF00FE7396 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E7A73724C3E4DF00FE7396 /* Tests_macOS.swift */; };
 		E8E7A73A24C3E4DF00FE7396 /* CombineMeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E7A71124C3E4DE00FE7396 /* CombineMeApp.swift */; };
@@ -503,10 +511,18 @@
 			files = (
 				5446053224D6376400B8BB19 /* RentalMethod.swift in Sources */,
 				E8E7A73D24C3E4DF00FE7396 /* ContentView.swift in Sources */,
+				C5D9A93226D2A51200965D92 /* HomeView.swift in Sources */,
 				5446053824D6376400B8BB19 /* JSONSchemaSupport.swift in Sources */,
 				5446052E24D6376400B8BB19 /* RentalUris.swift in Sources */,
+				C5D9A93326D2A51F00965D92 /* CombineUI.swift in Sources */,
 				5446053A24D6376400B8BB19 /* StationType.swift in Sources */,
+				C5D9A93726D2A53F00965D92 /* BikeInfoAPI.swift in Sources */,
+				C5D9A93926D2A54B00965D92 /* SystemInfo.swift in Sources */,
+				C5D9A93826D2A54900965D92 /* SysInfoDataClass.swift in Sources */,
 				54AABF3224DE26A400935CD8 /* BikeStationView.swift in Sources */,
+				C5D9A93526D2A52B00965D92 /* FormView.swift in Sources */,
+				C5D9A93426D2A52200965D92 /* GikeGridView.swift in Sources */,
+				C5D9A93626D2A53900965D92 /* SharedBikeViewModel.swift in Sources */,
 				54AABF3924DF8A5C00935CD8 /* BikeMapView.swift in Sources */,
 				5446053624D6376400B8BB19 /* StationInfo.swift in Sources */,
 				5446053024D6376400B8BB19 /* DataClass.swift in Sources */,
