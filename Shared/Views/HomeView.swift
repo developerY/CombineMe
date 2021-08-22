@@ -15,7 +15,10 @@ struct TestView: View {
             NavigationView {
                 NavigationLink(destination: BikeStationView()) {
                     Text("Bike Stations")
-                }.navigationBarTitle("Bike Stations")
+                }
+#if os(iOS)
+                .navigationBarTitle("Bike Stations")
+#endif
                 /*NavigationLink(destination: HomeView()) {
                  Text("Home")
                  }.navigationBarTitle("Bike Home")*/
@@ -30,8 +33,12 @@ struct BikeList: View {
             VStack {
                 Text("Bike Image")
                 ZStack {
-                    
-                    Image(uiImage: UIImage(named:"bike.jpg")!).resizable()//.frame(width: 100, height: 100)
+#if os(iOS)
+                    Image(uiImage: UIImage(named:"bike.jpg")!).resizable()
+#elseif os(macOS)
+                    Image(nsImage: NSImage(named:"bike")!).resizable()
+#endif
+                    //.frame(width: 100, height: 100)
                     //Image(uiImage: UIImage(named: "Material.png")!).resizable()
                     VStack {
                         Label("Bike", systemImage: "bicycle").padding().background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 8))
@@ -42,7 +49,10 @@ struct BikeList: View {
                 }
                 NavigationLink(destination: BikeStationView()) {
                     Text("Bike Stations")
-                }.navigationBarTitle("Bike Stations")
+                }
+#if os(iOS)
+                .navigationBarTitle("Bike Stations")
+#endif
             }.padding()
         }.padding()
     }
