@@ -9,7 +9,9 @@ import SwiftUI
 
 struct BikeStationView: View {
     @ObservedObject var viewModel = SharedBikeViewModel()
+#if os(iOS)
     @State var isEditMode: EditMode = .inactive
+#endif
     @State private var searchText = ""
     
     
@@ -24,10 +26,13 @@ struct BikeStationView: View {
                             .font(.subheadline)
                     }
                 }
-            }.navigationBarTitle("Bike Stations")
-                .navigationBarItems(trailing: EditButton())
-                .environment(\.editMode, self.$isEditMode)
-                .searchable(text: $searchText)
+            }
+#if os(iOS)
+            .navigationBarTitle("Bike Stations")
+            .navigationBarItems(trailing: EditButton())
+            .environment(\.editMode, self.$isEditMode)
+#endif
+            .searchable(text: $searchText)
         }
     }
     
